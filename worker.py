@@ -39,3 +39,6 @@ class HelloWorker(swf.ActivityWorker):
                 self.complete()
             if activity_task is False:
                 activity_task = "Nothing to do"
+
+if __name__ == '__main__':
+    HelloWorker().run()
