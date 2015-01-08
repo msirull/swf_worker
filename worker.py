@@ -16,7 +16,7 @@ DOMAIN = 'demo'
 VERSION = '1.0'
 TASKLIST = 'default'
 
-r = redis.StrictRedis(host='cxzcz.qpeias.0001.usw2.cache.amazonaws.com', port = 6379, db=0)
+r = redis.StrictRedis(host='publicreadcache.qpeias.0001.usw2.cache.amazonaws.com', port = 6379, db=0)
 dynamo_config=cf_conn.describe_stack_resource(tags['aws:cloudformation:stack-name'],'configTable1')
 tbl=dynamo_config['DescribeStackResourceResponse']['DescribeStackResourceResult']['StackResourceDetail']['PhysicalResourceId']
 table_obj = Table(tbl)
