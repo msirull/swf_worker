@@ -2,7 +2,7 @@ import boto.swf.layer2 as swf
 from boto.dynamodb2.table import Table
 import boto.ec2, redis, boto.cloudformation, logging, time
 from boto.utils import get_instance_metadata
-logging.basicConfig(filename='/var/log/worker/worker.log',level=logging.INFO)
+logging.basicConfig(filename='/var/log/app/app.log',level=logging.INFO)
 
 region = get_instance_metadata()['placement']['availability-zone'][:-1]
 ec2_conn = boto.ec2.connect_to_region(region)
