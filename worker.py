@@ -33,7 +33,7 @@ class HelloWorker(swf.ActivityWorker):
             activity_task = self.poll()
             if 'activityId' in activity_task:
                 requestid = activity_task['workflowExecution']['workflowId']
-                result = table_obj.get_item(env='demo')
+                result = table_obj.get_item(Key='demo')
                 data = result['data']
                 r.set(requestid, data)
                 print 'Hello, World!'
