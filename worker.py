@@ -32,12 +32,13 @@ class HelloWorker(swf.ActivityWorker):
         while True:
             activity_task = self.poll()
             if 'activityId' in activity_task:
+                logging.info(str(time.time()) + " is the worker start time")
                 requestid = activity_task['workflowExecution']['workflowId']
                 result = table_obj.get_item(Key='demo')
                 data = result['data']
                 r.set(requestid, data)
                 print 'Hello, World!'
-                logging.info(str(time.time()))
+                logging.info(str(time.time()) + " is the worker end time")
                 self.complete()
             if activity_task is False:
                 activity_task = "Nothing to do"
